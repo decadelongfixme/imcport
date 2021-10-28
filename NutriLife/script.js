@@ -1,38 +1,42 @@
 //	----------------------------------------------------------------------------------------------------------------------------
-//	
-//	2021 NutriLife - Pietro Rodrigues, Niko Araújo, Guilherme Gomes, Alecsander Fischer.
-//	
-//	----------------------------------------------------------------------------------------------------------------------------
-
-/*	Wrote this ENTIRELY myself! It is SO ridiculously over-engineered, hahah.
-	It was fun, though. No idea how good it actually is. It seems fairly extendable! 
-	Which is useless, because this project will be dead soon and the IMC table
-	is not dynamic in the slightest. Also, the readability seems to be quite sucky.
-	Oops. And, also, I think I've got a bit of trauma with not being able to specify
-	data types. Or maybe it's Stockholm Syndrome that is making me dislike it. Does
-	parsed languages perform worse with more lines and whitespace and comments?
-	I wonder. It's probably easy to look up, but my brain has almost completely rotten.
-	--AlecsF
-*/
-//	What is KISS? Baby don't hurt me, don't hurt me, no more.
-
-//	----------------------------------------------------------------------------------------------------------------------------
 /*	html to js data
 	 jnt_imc_r: don't want to hardcode the elements we're dealing with
 	 jns_imc_r: Iterate through list and add (current index).innerHTML content to jns_imc[] (useable, shares same index).
 	 TODO: this whole thing could be more automatic
 */
 //	----------------------------------------------------------------------------------------------------------------------------
+
+/* PURPOSE:
+@@ interface for use in code
+*/
 let jnt_imc = [];
-function jnt_imc_r(){//0 weight, 1 height, 2 result, 3 eval, +4 for value types
-	let jnt_x_r = ["jnt_x_w","jnt_x_h","jnt_x_r","jnt_x_e","jnt_x_w_t","jnt_x_h_t","jnt_x_r_t","jnt_x_e_t"];
-	for (let i = 0; i < jnt_x_r.length; i++){
+function jnt_imc_r() //0 weight, 1 height, 2 result, 3 eval, +4 for value types
+{	
+	let jnt_x_r = [ // TODO: typing this all out is silly
+		"jnt_x_w",
+		"jnt_x_h",
+		"jnt_x_r",
+		"jnt_x_e",
+		"jnt_x_w_t",
+		"jnt_x_h_t",
+		"jnt_x_r_t",
+		"jnt_x_e_t"
+	];
+	
+	// fetch jnt_x_r[] strings stored on the html, add to useable array
+	for (let i = 0; i < jnt_x_r.length; i++) {
 		jnt_imc[i] = document.getElementById(jnt_x_r[i]).innerHTML;
 	}
+
 }
+
+/* PURPOSE:
+@@ ui strings
+*/
 let jns_imc = [];
-function jns_imc_r(){
-	let jns_x_r = [	
+function jns_imc_r()
+{
+	let jns_x_r = [	// TODO: typing this all out is silly
 		"jns_x_0",	
 		"jns_x_1",
 		"jns_x_2",
@@ -42,10 +46,13 @@ function jns_imc_r(){
 		"jns_x_6",
 		"jns_x_7"
 	];
-	for (let i = 0; i < jns_x_r.length; i++){
+
+	// fetch jns_x_r[] strings stored on the html, add to useable array
+	for (let i = 0; i < jns_x_r.length; i++) {
 		jns_imc[i] = document.getElementById(jns_x_r[i]).innerHTML;
 	}
 }
+
 //	----------------------------------------------------------------------------------------------------------------------------
 /*	IMC calculator
 	 jni_calc calculates IMC based on weight (kg) and height (cm).
@@ -58,46 +65,83 @@ function jns_imc_r(){
 	 TODO: unify jni_tab->eval and jni_tab->msgf?
 */
 //	----------------------------------------------------------------------------------------------------------------------------
-function jni_calc(w,h){
-	return parseFloat( ( w/((h*h)/10000) ).toFixed(1) );//HACKHACK: parseFloat to undo toFixed's conversion to string
+
+/* PURPOSE:
+@@ Calculate IMC
+*/
+function jni_calc( w , h )
+{
+	// WEIGHT / HEIGHT^2
+	// since height is in centimetres...
+	// WEIGHT / (HEIGHT/100)^2
+	// or...
+	// WEIGHT / ( HEIGHT^2 / 100^2 )
+	
+	return parseFloat( ( w/((h*h)/10000) ).toFixed(1) ); // HACKHACK: parseFloat to undo toFixed's (rounding) conversion to string
 }
-function jni_tab(imcrn){
-	let table = [0,16,20,25,30,40,"array_end"];
-	function eval(imcrn_e){
-		function range(a,b,n){
+
+/* PURPOSE:
+@@ Evaluate IMC rating
+*/
+function jni_tab( input )
+{
+	// IMC rating intervals
+	let table = [0,16,20,25,30,40,"array_end"]; // TODO: overcomplicate this further? ;)
+	
+	// evaluate
+	function eval( input )
+	{
+		
+		// 0 -> 15.9, 16 -> 19.9, etc.
+		function e_test( a, b, n )
+		{
 			if (n >= a && b > n)
 				return 1;
 		}
-		function c(imcrn_e_c){
-			let i = 0;
-			let b = 0;
-			for (; i < table.length; i++){
+		
+		/* PURPOSE:
+		@@ evaluate through
+		@@ return position on table
+		*/
+		function runthrough( input )
+		{
+			for ( let i=0,b=0 ; i < (table.length -1) ; i++ )
+			{
 				b = i + 1;
-				if ( range(table[i],table[b],imcrn_e_c) )
-					break;
+				if ( e_test(table[i],table[b],input) ) break;
 			}
-			if ( isNaN(table[i]-1) )
-				return "overf";
-			else
-				return i;
+			
+			return i;
 		}
-		return ( c(imcrn_e) );
+		
+		return ( eval(input) );
 	}
-	function msgf(m){//relevant ui index should always be at the end of jns_imc[]
-		if	(m == "overf")	return( jns_imc[ (jns_imc.length)	-		1 ] );
-		else				return( jns_imc[ (jns_imc.length) 	+ (m - 6) ] );
+	
+	// return useable string based on eval
+	function msgf(m) // relevant ui index should always be at the end of jns_imc[]
+	{
+		if	(m == "array_end")	return( jns_imc[ (jns_imc.length)	-		1 ] );
+		else					return( jns_imc[ (jns_imc.length) 	+ (m - 6) ] );
 	}
-	return msgf( eval(imcrn) );
+	
+	return msgf( eval(input) );
 }
-function j_u_imcresult(){
+
+function j_u_imcresult()
+{
 	//TODO: hardcoded to get "value"; ideally we should use jnt_imc;
 	let w = document.getElementById(jnt_imc[0]).value;
 	let h = document.getElementById(jnt_imc[1]).value;
-	if ( isNaN(w) || isNaN(h) || !(w > 0) || !(h > 0) ){//don't use NaN or >= 0; warn user
+	
+	//don't use NaN or >= 0; warn user
+	if ( isNaN(w) || isNaN(h) || !(w > 0) || !(h > 0) )
+	{
 		document.getElementById(jnt_imc[2]).setAttribute(jnt_imc[6], jns_imc[1]);
 		document.getElementById(jnt_imc[3]).setAttribute(jnt_imc[7], jns_imc[0]);
 	}
-	else{
+
+	else
+	{
 		let n = jni_calc(w,h);
 		let e = jni_tab(n);
 		document.getElementById(jnt_imc[2]).setAttribute(jnt_imc[6], n);
