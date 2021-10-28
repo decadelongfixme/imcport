@@ -1,0 +1,248 @@
+/*Index (Menu)*/
+/*Header*/
+.index header{
+    background-color:#76B947;
+}
+.index header a{
+    float:left;
+    padding-top:20px;
+    margin-left:15px;
+    margin-right:50px;
+}
+.index header img{
+    width:60px;
+}
+.index header h1{
+    color:rgba(255,255,255,255);
+    font-size:60px;
+    padding-top:10px;
+    padding-bottom:20px;
+    margin-right:1550px;
+    user-select:none;
+}
+.index #imgmain{
+    margin-top:80px;
+    width:800px;
+    height:600px;
+}
+.index .main1{
+    margin-top:50px;
+}
+.index .cards{
+    margin-top:50px;
+}
+.index .cards2{
+    margin-top:50px;
+}
+.index .botaoresultado{
+    margin-top:20px;
+}
+.index .calculadora h1{
+    margin-bottom:20px;
+}
+.index .calculadora #caixadetexto{
+    margin-top:10px;
+    margin-bottom:10px;
+}
+.index .resultado h2{
+    margin-top:10px;
+    margin-bottom:10px;
+}
+/*Dietas*/
+
+/*Ficar Saudavel*/
+.saudavel header{
+    background-color:#76B947;
+}
+.saudavel header a{
+    float:left;
+    padding-top:20px;
+    margin-left:15px;
+    margin-right:50px;
+}
+.saudavel header img{
+    width:60px;
+}
+.saudavel header h1{
+    color:rgba(255,255,255,255);
+    font-size:60px;
+    padding-top:10px;
+    padding-bottom:20px;
+    margin-right:1550px;
+}
+.saudavel .mainsaude{
+    margin-top:50px;
+}
+.saudavel h2{
+    margin-top:10px;
+    margin-bottom:10px;
+}
+.saudavel #hsaude{
+    margin-top:50px;
+    margin-bottom:50px;
+}
+.saudavel #imgsaude{
+    width:700px;
+    height:500px;
+}
+
+/*Perder Peso*/
+.peso header{
+    background-color:#76B947;
+}
+.peso header a{
+    float:left;
+    padding-top:20px;
+    margin-left:15px;
+    margin-right:50px;
+}
+.peso header img{
+    width:60px;
+}
+.peso header h1{
+    color:rgba(255,255,255,255);
+    font-size:60px;
+    padding-top:10px;
+    padding-bottom:20px;
+    margin-right:1550px;
+}
+.peso .mainpeso{
+    margin-top:50px;
+}
+.peso h2{
+    margin-top:10px;
+    margin-bottom:10px;
+}
+.peso #hpeso{
+    margin-top:50px;
+    margin-bottom:50px;
+}
+.peso #imgpeso{
+    width:700px;
+    height:500px;
+}
+/*Ganhar Massa Muscular*/
+.massa header{
+    background-color:#76B947;
+}
+.massa header a{
+    float:left;
+    padding-top:20px;
+    margin-left:15px;
+    margin-right:50px;
+}
+.massa header img{
+    width:60px;
+}
+.massa header h1{
+    color:rgba(255,255,255,255);
+    font-size:60px;
+    padding-top:10px;
+    padding-bottom:20px;
+    margin-right:1550px;
+}
+.massa .mainmassa{
+    margin-top:50px;
+}
+.massa h2{
+    margin-top:10px;
+    margin-bottom:10px;
+}
+.massa #hmassa{
+    margin-top:50px;
+    margin-bottom:50px;
+}
+.massa #imgmassa{
+    width:700px;
+    height:500px;
+}
+/*Info dos alimentos*/
+.info header{
+    background-color:#76B947;
+}
+.info header a{
+    float:left;
+    padding-top:20px;
+    margin-left:15px;
+    margin-right:50px;
+}
+.info header img{
+    width:60px;
+}
+.info header h1{
+    color:rgba(255,255,255,255);
+    font-size:60px;
+    padding-top:10px;
+    padding-bottom:20px;
+    margin-right:1550px;
+}
+.info .maininfo{
+    margin-top:50px;
+}
+.info h2{
+    margin-top:10px;
+    margin-bottom:10px;
+}
+.info #hinfo{
+    margin-top:50px;
+    margin-bottom:50px;
+}
+.info #imginfo{
+    width:700px;
+    height:500px;
+}
+/*Vegana*/
+.vegana header{
+    background-color:#76B947;
+}
+.vegana header a{
+    float:left;
+    padding-top:20px;
+    margin-left:15px;
+    margin-right:50px;
+}
+.vegana header img{
+    width:60px;
+}
+.vegana header h1{
+    color:rgba(255,255,255,255);
+    font-size:60px;
+    padding-top:10px;
+    padding-bottom:20px;
+    margin-right:1550px;
+}
+.vegana .mainvegana{
+    margin-top:50px;
+}
+.vegana h2{
+    margin-top:10px;
+    margin-bottom:10px;
+}
+.vegana #hvegana{
+    margin-top:50px;
+    margin-bottom:50px;
+}
+.vegana #imgvegana{
+    width:700px;
+    height:500px;
+}
+/*Footer*/
+footer{
+    background-color:#76B947;
+    margin-top:100px;
+}
+footer #h1footer{
+    color:white;
+    margin-bottom:30px;
+    user-select:none;
+}
+footer a h1{
+    font-size:20px;
+    color:white;
+    text-decoration:none;;
+    user-select:none;
+}
+footer a h1:hover{
+    color:black;
+    transition:0.2s;
+}

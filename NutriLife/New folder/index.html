@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <!-- Meta tags Obrigatórias -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <title>NutriLife</title>
+    <link rel="icon" href="favicon.ico" src="">
+  </head>
+  <body class="index">
+    <header>
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-8 col-md-7 py-4">
+            <a href="index.html"><img src="homeicon.png"></a>
+            <h1>NutriLife</h1>
+          </div>
+        </div>
+      </div>
+    </header>
+    <main>
+      <div class="container">
+        <div class="main1">
+        <div class="umbotron text-center">
+        <h1 class="jumbotron-heading">NutriLife</h1>
+        <p class="lead text-muted">Para uma vida saudável, precisamos de uma alimentação saudável. Café da manhã saudável sempre mantém o nível de energia do nosso corpo. Receitas saudáveis ​​de jantar são boas para perda de peso e para manter um sono melhor.</p>
+        <a href="sobre.html" class="btn btn-success">Sobre</a>
+        </div>
+        </div>
+      </div>
+      <div class="cards">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="card-deck">
+              <div class="card">
+                <img class="card-img-top" src="cardfotosaudavel.png" alt="Imagem de capa do card">
+                <div class="card-body">
+                  <h5 class="card-title">Dietas Saudáveis</h5>
+                  <p class="card-text">Dietas para quem deseja manter o peso, ficar mais saudável</p>
+                  <a href="saudavel.html" class="btn btn-success">Conhecer</a>
+                </div>
+              </div>
+              <div class="card">
+                <img class="card-img-top" src="cardfotoperderpeso.png" alt="Imagem de capa do card">
+                <div class="card-body">
+                  <h5 class="card-title">Dietas Para Perder Peso</h5>
+                  <p class="card-text">Dietas para perder peso, perder alguns quilinhos</p>
+                  <a href="perderpeso.html" class="btn btn-success">Conhecer</a>
+                </div>
+              </div>
+              <div class="card">
+                <img class="card-img-top" src="cardfotoganharmassa.png" alt="Imagem de capa do card">
+                <div class="card-body">
+                  <h5 class="card-title">Dietas Para Ganhar Musculos</h5>
+                  <p class="card-text">Dietas para quem deseja conseguir massa muscular, ganhar alguns musculos</p>
+                  <a href="ganharmassa.html" class="btn btn-success">Conhecer</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
+      <div class="cards2">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="card-deck">
+                <div class="card">
+                  <img class="card-img-top" src="cardvegano.png" alt="Imagem de capa do card">
+                  <div class="card-body">
+                    <h5 class="card-title">Dieta Vegana</h5>
+                    <p class="card-text">Dieta para aqueles que não querem consumir produtos de origem animal</p>
+                    <a href="vegana.html" class="btn btn-success">Conhecer</a>
+                  </div>
+                </div>
+                <div class="card">
+                  <img class="card-img-top" src="cardfotopetrini.png" alt="Imagem de capa do card">
+                  <div class="card-body">
+                    <h5 class="card-title">Dieta do Petrini</h5>
+                    <p class="card-text">Dieta divulgada pelo Petrini, grandeeee Petrini</p>
+                    <a href="perderpeso.html" class="btn btn-success">Conhecer</a>
+                  </div>
+                </div>
+                <div class="card">
+                  <img class="card-img-top" src="cardfotoinfoalimentos.png" alt="Imagem de capa do card">
+                  <div class="card-body">
+                    <h5 class="card-title">Informação dos Alimentos</h5>
+                    <p class="card-text">Encontre aqui os nutrientes encontrados em cada alimento</p>
+                    <a href="infoalimentos.html" class="btn btn-success">Conhecer</a>
+                  </div>
+                </div>
+              </div>
+              <hr>
+            </div>
+          </div>
+        </div>
+        </div>
+
+        <!--CALCULADOR DE IMC-->
+		
+		<!--imc calc strings -->
+		<div class="d-none" id="jn-imc-strings">
+		  <p id="jns_x_0"></p>
+		  <p id="jns_x_1">Valor inválido!</p>
+		  <p id="jns_x_2">Subpeso Severo</p>
+		  <p id="jns_x_3">Subpeso</p>
+		  <p id="jns_x_4">Normal</p>
+		  <p id="jns_x_5">Sobrepeso</p>
+		  <p id="jns_x_6">Obeso</p>
+		  <p id="jns_x_7">Obeso Mórbido</p>
+		<!--I've no idea on how you're supposed to store stuff like this-
+			I just did in the easiest way I first thought.-->
+		</div>
+		
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-8 col-md-7 py-4">
+              <div class="d-flex justify-content-center">
+                <div class="calculadora">
+                  <div class="infoimc">
+                    <form name="imcForm" id="imcForm" action="#">
+                      <p>
+                      Altura (cm)<br />
+                      <input type="text" id="altura" name="altura" maxlength="3"/>
+                      </p>
+                      <p>Peso (kg)<br />
+                      <input type="text" id="peso" name="peso" maxlength="3"/>
+                      </p>
+                      <p>	<!--sex doesn't matter for this.
+								Or, at least, our supervisor doesn't think so.
+								I cannot find the standard for the "IMC",
+								so I'll take their word for it.
+                      <label>
+                      <input type="radio" name="sexo" value="op??o" id="sexo_0" />
+                      Masculino</label>
+                      <br />
+                      <label>
+                      <input type="radio" name="sexo" value="op??o" id="sexo_1" />
+                      Feminino</label>
+								-->
+                      </p> <span style="font-size: x-small;"><a  href="" target=?_blank?></a>
+                      <button class="btn btn-success" type="button" onclick="j_u_imcresult();">Resultado</button>
+                
+				<div class="resultado">
+                  <h1>Resultado</h1>
+                  <h2>IMC</h2>
+                  <input type="text" id="resultadoimc" name="resultadoimc" disabled>
+                  <h2>Avaliação do IMC</h2>
+                  <input type="text" id="avaliacaoimc" name="avaliacaoimc" disabled>
+                </div>
+				
+              </div>
+            </div>
+          </div>
+        </div>
+    </main>
+    <footer>
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-8 col-md-7 py-4">
+            <h1 id="h1footer">NutriLife</h1>
+            <div class="navs">
+            <a id="fh1" href="index.html"><h1>Voltar para o topo</h1></a>
+            <a id="fh1" href="saudavel.html"><h1>Dieta Para Ficar Saudável</h1></a>
+            <a id="fh1" href="perderpeso.html"><h1>Dieta Para Perder Peso</h1></a>
+            <a id="fh1" href="ganharmassa.html"><h1>Dieta Para Ganhar Músculo</h1></a>
+            <a id="fh1" href="ganharmassa.html"><h1>Dieta Vegana</h1></a>
+            <a id="fh2" href="https://discord.gg/BTCrPCnMxp%22%3E"><h1>Discord</h1></a>
+            <div class="navs">
+          </div>
+        </div>
+      </div>
+      </div>
+    </footer>
+
+    <!-- JavaScript (Opcional) -->
+    <!-- jQuery primeiro, depois Popper.js, depois Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+	<script src="script.js"></script>
+	<!-- -->
+  </body>
+</html>
